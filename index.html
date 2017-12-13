@@ -5,13 +5,16 @@
 		<link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
 		<style>
 			body{
-				background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+				background-image: linear-gradient(120deg, #00efbb 10%, #f68084 50%);
 				font-family: Bitter;
 			}
 
 			div{
 				background-color: #ffffff;
 				padding: 25px 25px;
+			}
+			.bgBlock{
+				background-image: linear-gradient(120deg, #00efbb 10%, #f68084 50%);
 			}
 		</style>
 <script type="text/javascript">
@@ -27,57 +30,57 @@
 
         var x = (toyear - birthyear) % 12
         if ((x == 1) || (x == -11)) {
-            document.getElementById("csign").innerHTML="Mouse"
+            document.getElementById("csign").innerHTML="Year of the Mouse"
 		}
         else  {
 			if (x == 0){
-				document.getElementById("csign").innerHTML="Ox" ;          
+				document.getElementById("csign").innerHTML="Year of the Ox" ;          
 			}
 			else  {
 				if ((x == 11) || (x == -1)) 
 				{
-					document.getElementById("csign").innerHTML="Tiger"          
+					document.getElementById("csign").innerHTML="Year of the Tiger"          
 				}
 				else  {
 					if ((x == 10) || (x == -2)) 
 					{
-						document.getElementById("csign").innerHTML="Rabbit"         
+						document.getElementById("csign").innerHTML="Year of the Rabbit"         
 					}
 					else  {
 						if ((x == 9) || (x == -3))
 						{
-							document.getElementById("csign").innerHTML="Dragon"         
+							document.getElementById("csign").innerHTML="Year of the Dragon"         
 						}
 						else  {
 							if ((x == 8) || (x == -4))
 							{ 
-								document.getElementById("csign").innerHTML="Snake"         
+								document.getElementById("csign").innerHTML="Year of the Snake"         
 							}
 							else  {
 								if ((x == 7) || (x == -5))
 								{ 
-									document.getElementById("csign").innerHTML="Horse"          
+									document.getElementById("csign").innerHTML="Year of the Horse"          
 								}
 								else {
 									if ((x == 6) || (x == -6))  
 									{ 
-										document.getElementById("csign").innerHTML="Sheep"          
+										document.getElementById("csign").innerHTML="Year of the Sheep"          
 									}
 									else  {
 										if ((x == 5) || (x == -7))  {  
-											document.getElementById("csign").innerHTML="Monkey"         
+											document.getElementById("csign").innerHTML="Year of the Monkey"         
 										}
 										else  {
 											if ((x == 4) || (x == -8))  {
-												document.getElementById("csign").innerHTML="Chicken"        
+												document.getElementById("csign").innerHTML="Year of the Chicken"        
 											}
 											else  {
 												if ((x == 3) || (x == -9))  {
-													document.getElementById("csign").innerHTML="Dog"            
+													document.getElementById("csign").innerHTML="Year of the Dog"            
 												}
 												else  {
 													if ((x == 2) || (x == -10))  {
-														document.getElementById("csign").innerHTML="Pig"             
+														document.getElementById("csign").innerHTML="Year of the Pig"             
 													}  
 												}
 											}
@@ -90,8 +93,28 @@
 				}
 			}
         }
+		
+		
+		var strings=[
+					"Everything will work out for the best.",
+					"Raise your sail one foot and you get ten feet of wind.",
+					"Most of the things you're doing are going well, so there's no need to give up now.",
+					"Unfortunately for you, the way forward can sometimes be the way backwards this week. ",
+					"Take a break from your busy schedule and devote a few minutes to you. You're not used to such self-indulgence, but today it would do you a world of good.",
+					"Face the truth with dignity.",
+					"Love is right around the corner.",
+					"Look in the mirror without admiring your reflection",
+					"Better to light a candle than curse the darkness.",
+					"The best way to predict a future is to create it.",
+					"Move quickly. Now is the time to make progress.",
+					"The darkest hour is just before the dawn.",
+					"Wag ka nang mag-aral, babagsak ka din naman e.",
+					"A thousand-mile trip begins with one step.",
+					"Tangina mo daw"];
+		var num=Math.floor(Math.random() * 15);
+		document.getElementById("fortune").innerHTML=strings[num];	
 		var randomNum = Math.floor(Math.random() * 99);
-		document.getElementById("luckynum").innerHTML=randomNum;
+		document.getElementById("luckynum").innerHTML=randomNum+" is your lucky number!";
 						  
 		//lucky color
 		var aesthetic = 0.618033988749895;
@@ -101,10 +124,10 @@
 		document.getElementById("luckycolor").style.color = color;
 		var leapyear=((birthyear % 4 == 0) && (birthyear % 100 != 0)) || (birthyear % 400 == 0);
 		if(leapyear ==false){
-			document.getElementById("leapyear").innerHTML = "FALSE";
+			document.getElementById("leapyear").innerHTML = "NOT LEAP YEAR!!";
 		}
 		else{
-			document.getElementById("leapyear").innerHTML = "TRUE";
+			document.getElementById("leapyear").innerHTML = "LEAP YEAR!!";
 		}
 						  
 		var now = new Date();   
@@ -127,14 +150,16 @@
 			ageday = 30 + ageday;
 		}
 		var val = ageyear + "-" + agemonth + "-" + ageday;
-		document.getElementById("age").innerHTML="You are "+ageyear+" years,"+agemonth+" month/s,"+ageday+ " days old";
+		document.getElementById("age").innerHTML=ageyear+" years,"+agemonth+" month/s,"+ageday+ " days old";
+		
+		
 						  
 
 	}
 		  
 		function zodiac(day, month) {
 			// returns the zodiac sign according to day and month
-			var zodiac = ['', 'Capricorn', 'Aquarius', 'Pisces', 'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn'];
+			var zodiac = ['', 'Zodiac Sign is Capricorn', 'Zodiac Sign is Aquarius', 'Zodiac Sign is Pisces', 'Zodiac Sign is Aries', 'Zodiac Sign is Taurus', 'Zodiac Sign is Gemini', 'Zodiac Sign is Cancer', 'Zodiac Sign is Leo', 'Zodiac Sign is Virgo', 'Zodiac Sign is Libra', 'Zodiac Sign is Scorpio', 'Zodiac Sign is Sagittarius', 'Zodiac Sign is Capricorn'];
 			var last_day = ['', 19, 18, 20, 20, 21, 21, 22, 22, 21, 22, 21, 20, 19];
 			return (day > last_day[month]) ? zodiac[month*1 + 1] : zodiac[month];
 		}
@@ -143,12 +168,26 @@
 	</head>
    
    <body>
-	<div style="margin: 4% 35% 5% 35%">
+	<div style="margin: 4% 5% 5% 5%" class="bgBlock">
 		<form name="zodiac">
+			<br>
+			<label type="text" id="sign" size="12" value="" align="right"></label>
+			<br>
+			<label type="text" id="csign" size="12" value="" align="right"></label>
+			<br>
+			<label type="text" id="luckynum" size="12" value="" align="right"></label>
+			<br><label type="text" id="luckycolor" size="12" value="" align="right"><b><strong>LUCKY COLOR</strong></b></label><br>
+			
+			<label type="text" id="leapyear" size="12" value="" align="right"></label>
+			<br>
+			<label type="text" id="age" size="12" value="" align="right"></label>
+			<br>
+			<label type="text" id="fortune" size="12" value="" align="right"></label>
+			<br>
 			<b><i>Year</i></b>
 			<input class="form-control" type="text" size="10" name="year" placeholder="YYYY" onClick=value="">
-			
-			<br><b><i>Month</i></b>
+			</br>
+			<b><i>Month</i></b>
 				<div style="padding: 0 0">
 					<select class="form-control" name="month">
 					<option value="x">Select Birth Month</option>
@@ -166,25 +205,12 @@
 					<option value="12">December</option>
 					</select>
 				</div>
-				<br>
 			<b><i>Day</i></b>
 	
 			<input class="form-control" type="text" name="date"value="Day" size="3" onClick=value="">
 			
 			<br>
-			<center><input class="btn btn-info" type="button" value="Calculate" onClick="signs()"></center>
-			<br>
-			<b>ZODIAC SIGN:</b>
-			<label type="text" id="sign" size="12" value="" align="right"></label>
-			<br><b>CHINESE ZODIAC:</b>
-			<label type="text" id="csign" size="12" value="" align="right"></label>
-			<br><b>LUCKY NUMBER:</b>
-			<label type="text" id="luckynum" size="12" value="" align="right"></label>
-			<br><label type="text" id="luckycolor" size="12" value="" align="right"><b><strong>LUCKY COLOR</strong></b></label><br>
-			<b>LEAP YEAR:</b>
-			<label type="text" id="leapyear" size="12" value="" align="right"></label>
-			<br><b>AGE:</b>
-			<label type="text" id="age" size="12" value="" align="right"></label>
+			<center><input  class="btn btn-primary btn-lg btn-block" type="button" value="Calculate" onClick="signs()"></center>
 		</form>
 	</div>
       
