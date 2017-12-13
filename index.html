@@ -1,0 +1,192 @@
+<html>
+   <head>
+	  	<title>Fortune Teller</title>
+	  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+		<style>
+			body{
+				background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+				font-family: Bitter;
+			}
+
+			div{
+				background-color: #ffffff;
+				padding: 25px 25px;
+			}
+		</style>
+<script type="text/javascript">
+	function signs(){ 
+		var birthyear=document.zodiac.year.value;
+		var date=document.zodiac.date.value;
+		var month=document.zodiac.month.selectedIndex;
+		var z_sign = zodiac(date, month);   
+		document.getElementById("sign").innerHTML = z_sign;
+			
+        var toyear = 1997;
+        var birthpet="Ox"
+
+        var x = (toyear - birthyear) % 12
+        if ((x == 1) || (x == -11)) {
+            document.getElementById("csign").innerHTML="Mouse"
+		}
+        else  {
+			if (x == 0){
+				document.getElementById("csign").innerHTML="Ox" ;          
+			}
+			else  {
+				if ((x == 11) || (x == -1)) 
+				{
+					document.getElementById("csign").innerHTML="Tiger"          
+				}
+				else  {
+					if ((x == 10) || (x == -2)) 
+					{
+						document.getElementById("csign").innerHTML="Rabbit"         
+					}
+					else  {
+						if ((x == 9) || (x == -3))
+						{
+							document.getElementById("csign").innerHTML="Dragon"         
+						}
+						else  {
+							if ((x == 8) || (x == -4))
+							{ 
+								document.getElementById("csign").innerHTML="Snake"         
+							}
+							else  {
+								if ((x == 7) || (x == -5))
+								{ 
+									document.getElementById("csign").innerHTML="Horse"          
+								}
+								else {
+									if ((x == 6) || (x == -6))  
+									{ 
+										document.getElementById("csign").innerHTML="Sheep"          
+									}
+									else  {
+										if ((x == 5) || (x == -7))  {  
+											document.getElementById("csign").innerHTML="Monkey"         
+										}
+										else  {
+											if ((x == 4) || (x == -8))  {
+												document.getElementById("csign").innerHTML="Chicken"        
+											}
+											else  {
+												if ((x == 3) || (x == -9))  {
+													document.getElementById("csign").innerHTML="Dog"            
+												}
+												else  {
+													if ((x == 2) || (x == -10))  {
+														document.getElementById("csign").innerHTML="Pig"             
+													}  
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+        }
+		var randomNum = Math.floor(Math.random() * 99);
+		document.getElementById("luckynum").innerHTML=randomNum;
+						  
+		//lucky color
+		var aesthetic = 0.618033988749895;
+		var randcolor=Math.random()*aesthetic;
+						  colorreal=randcolor.toString(16).substr(2,6);
+		var color ='#'+colorreal;
+		document.getElementById("luckycolor").style.color = color;
+		var leapyear=((birthyear % 4 == 0) && (birthyear % 100 != 0)) || (birthyear % 400 == 0);
+		if(leapyear ==false){
+			document.getElementById("leapyear").innerHTML = "FALSE";
+		}
+		else{
+			document.getElementById("leapyear").innerHTML = "TRUE";
+		}
+						  
+		var now = new Date();   
+						  
+		var dobMonth= month; 
+		var dobDay= date;
+		var dobYear= birthyear;
+		var nowDay= now.getDate();
+		var nowMonth = now.getMonth() + 1;
+		var nowYear= now.getFullYear();
+		var ageyear = nowYear- dobYear;
+		var agemonth = nowMonth - dobMonth;
+		var ageday = nowDay- dobDay;
+		if (agemonth < 0) {
+			ageyear--;
+			agemonth = (12 + agemonth);
+		}
+		if (nowDay< dobDay) {
+			agemonth--;
+			ageday = 30 + ageday;
+		}
+		var val = ageyear + "-" + agemonth + "-" + ageday;
+		document.getElementById("age").innerHTML="You are "+ageyear+" years,"+agemonth+" month/s,"+ageday+ " days old";
+						  
+
+	}
+		  
+		function zodiac(day, month) {
+			// returns the zodiac sign according to day and month
+			var zodiac = ['', 'Capricorn', 'Aquarius', 'Pisces', 'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn'];
+			var last_day = ['', 19, 18, 20, 20, 21, 21, 22, 22, 21, 22, 21, 20, 19];
+			return (day > last_day[month]) ? zodiac[month*1 + 1] : zodiac[month];
+		}
+
+</script>
+	</head>
+   
+   <body>
+	<div style="margin: 4% 35% 5% 35%">
+		<form name="zodiac">
+			<b><i>Year</i></b>
+			<input class="form-control" type="text" size="10" name="year" placeholder="YYYY" onClick=value="">
+			
+			<br><b><i>Month</i></b>
+				<div style="padding: 0 0">
+					<select class="form-control" name="month">
+					<option value="x">Select Birth Month</option>
+					<option value="01">January</option>
+					<option value="02">February</option>
+					<option value="03">March</option>
+					<option value="04">April</option>
+					<option value="05">May</option>
+					<option value="06">June</option>
+					<option value="07">July</option>
+					<option value="08">August</option>
+					<option value="09">September</option>
+					<option value="10">October</option>
+					<option value="11">November</option>
+					<option value="12">December</option>
+					</select>
+				</div>
+				<br>
+			<b><i>Day</i></b>
+	
+			<input class="form-control" type="text" name="date"value="Day" size="3" onClick=value="">
+			
+			<br>
+			<center><input class="btn btn-info" type="button" value="Calculate" onClick="signs()"></center>
+			<br>
+			<b>ZODIAC SIGN:</b>
+			<label type="text" id="sign" size="12" value="" align="right"></label>
+			<br><b>CHINESE ZODIAC:</b>
+			<label type="text" id="csign" size="12" value="" align="right"></label>
+			<br><b>LUCKY NUMBER:</b>
+			<label type="text" id="luckynum" size="12" value="" align="right"></label>
+			<br><label type="text" id="luckycolor" size="12" value="" align="right"><b><strong>LUCKY COLOR</strong></b></label><br>
+			<b>LEAP YEAR:</b>
+			<label type="text" id="leapyear" size="12" value="" align="right"></label>
+			<br><b>AGE:</b>
+			<label type="text" id="age" size="12" value="" align="right"></label>
+		</form>
+	</div>
+      
+   </body>
+</html>
